@@ -34,11 +34,16 @@ section{padding:88px 0;}
 
 /* HEADER */
 header.site{ background:#fff; border-bottom:1px solid rgba(0,0,0,.06); position:sticky; top:0; z-index:50;}
-.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto;}
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto; position:relative; }
 .nav .logo{ font-family:var(--font-display); font-weight:800; font-size:1.25rem; color:var(--brand);}
 .nav ul{ display:flex; gap:32px; font-size:.9rem; font-weight:600;}
 .nav ul a:hover{ color:var(--brand); }
 .nav ul a.active{ color:var(--brand); }
+.nav-toggle{ display:none; flex-direction:column; justify-content:center; gap:5px; width:40px; height:40px; background:none; border:none; cursor:pointer; padding:0; }
+.nav-toggle span{ display:block; width:24px; height:2px; background:var(--ink); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
 /* HERO */
 .hero{ background: radial-gradient(circle at 15% 20%, rgba(197,6,61,.12), transparent 55%), var(--cream); padding:96px 0 64px; text-align:center; }
@@ -46,6 +51,12 @@ header.site{ background:#fff; border-bottom:1px solid rgba(0,0,0,.06); position:
 .hero p{ max-width:640px; margin:0 auto 34px; color:var(--muted); font-size:1.05rem; }
 .hero .cta-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
 .badge-img{ margin:28px auto 0; max-width:220px; opacity:.85; }
+.vsl-outer{ width:100%; padding:0 16px; margin:36px 0; }
+.vsl-wrap{ position:relative; width:100%; max-width:1360px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; box-shadow:0 24px 50px -18px rgba(30,9,18,.45); background:var(--plum); cursor:pointer; border:none; }
+.vsl-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.vsl-thumb{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.vsl-play{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:none; border:none; cursor:pointer; padding:0; width:68px; height:48px; filter:drop-shadow(0 8px 20px rgba(0,0,0,.4)); transition:transform .15s ease; }
+.vsl-play:hover{ transform:translate(-50%,-50%) scale(1.08); }
 .placeholder-img{ background: linear-gradient(135deg, rgba(197,6,61,.12), rgba(232,181,74,.18)); border:1px dashed rgba(197,6,61,.35); border-radius: var(--radius); display:flex; align-items:center; justify-content:center; color: var(--brand); font-size:.75rem; font-weight:700; text-align:center; padding:10px; }
 
 /* PÁGINA INTERNA (sobre, políticas etc) */
@@ -155,6 +166,9 @@ footer.site strong{ color:#fff; }
 .exit-form label{ font-size:.78rem; font-weight:700; color:var(--ink); margin-bottom:-6px; }
 .exit-form input{ padding:13px 16px; border-radius:10px; border:1px solid rgba(0,0,0,.15); font-size:.92rem; font-family:var(--font-body); }
 .exit-form input:focus{ outline:2px solid var(--brand); outline-offset:1px; }
+.exit-form input:invalid:not(:placeholder-shown){ border-color:#d92b4b; }
+.field-error{ display:none; font-size:.72rem; color:#d92b4b; font-weight:600; margin-top:-6px; }
+.field-error.show{ display:block; }
 .exit-form .consent{ display:flex; flex-direction:row; align-items:flex-start; gap:8px; font-size:.76rem; font-weight:400; color:var(--muted); margin-top:2px; }
 .exit-form .consent input{ width:auto; margin-top:3px; }
 .exit-form .btn{ margin-top:6px; width:100%; }
@@ -165,5 +179,19 @@ footer.site strong{ color:#fff; }
   .benefit-grid{ grid-template-columns:repeat(2,1fr); }
   .testi-grid{ grid-template-columns:repeat(2,1fr); }
   .footer-grid{ grid-template-columns:1fr; }
-  .nav ul{ display:none; }
+  .nav-toggle{ display:flex; }
+  .nav ul{
+    display:flex; flex-direction:column; gap:0; position:absolute; top:100%; left:0; right:0;
+    background:#fff; border-top:1px solid rgba(0,0,0,.06); box-shadow:0 16px 30px -12px rgba(0,0,0,.15);
+    max-height:0; overflow:hidden; transition:max-height .25s ease;
+  }
+  .nav ul.open{ max-height:320px; }
+  .nav ul li{ border-bottom:1px solid rgba(0,0,0,.05); }
+  .nav ul li a{ display:block; padding:16px 24px; }
+  .vsl-outer{ padding:0 12px; }
+}
+
+@media (max-width: 480px){
+  .vsl-outer{ padding:0 8px; }
+  section{ padding:64px 0; }
 }
