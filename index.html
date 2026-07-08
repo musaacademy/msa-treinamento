@@ -6,6 +6,9 @@
 <title>MSA Turbo | Nova era da Mentoria MSA</title>
 <meta name="description" content="Conheça a MSA Turbo, a nova era da Mentoria MSA - Musa Select Academy. Aprenda a vender todos os dias com tráfego pago e orgânico no automático, começando do zero e sem precisar aparecer.">
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
 
 <!-- =========================================================
      ÁREA DE SCRIPTS DE RASTREAMENTO (GTM / GA / Clarity / Pixel)
@@ -34,7 +37,10 @@
 <header class="site">
   <div class="nav">
     <a href="index.html" class="logo">MSA Turbo</a>
-    <ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navMenu">
       <li><a href="index.html" class="active">Início</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="formas-de-pagamento.html">Pagamento</a></li>
@@ -48,33 +54,47 @@
     <span class="eyebrow">MSA Turbo</span>
     <h1>MSA Turbo: a nova era da Mentoria MSA</h1>
     <p>A MSA Turbo dá continuidade à Mentoria MSA (antiga Musa Select Academy) e ensina você a vender todos os dias com uma estrutura de produtos virais, combinando tráfego orgânico e pago de forma automatizada — mesmo começando do zero e sem precisar aparecer.</p>
+  </div>
 
-    <!-- =========================================================
-         VSL — VÍDEO DE VENDAS
-         Posicionado logo após o título e a promessa (subheadline)
-         e ANTES do botão de compra. É o ponto de maior conversão
-         para VSL: a visitante lê o gancho, assiste ao argumento de
-         venda completo e encontra o CTA logo abaixo, no momento de
-         maior interesse — sem precisar rolar a página em busca dele.
+  <!-- =========================================================
+       VSL — VÍDEO DE VENDAS
+       Posicionado logo após o título e a promessa (subheadline) e
+       ANTES do botão de compra — o ponto de maior conversão para
+       VSL. O bloco fica quase na largura total do site (full-bleed),
+       para dar destaque máximo ao vídeo.
 
-         TROQUE "SEU_ID_DO_VIDEO" pelo ID do seu vídeo no YouTube.
-         O ID é o trecho depois de "v=" no link do vídeo.
-         Ex.: em https://www.youtube.com/watch?v=ABC123XYZ o ID é ABC123XYZ
-         ========================================================= -->
-    <div class="vsl-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO"
-        title="Assista e conheça a MSA Turbo"
+       PERFORMANCE: usa o padrão "facade" — carrega só uma imagem
+       (thumbnail) até a visitante clicar em play. O player pesado
+       do YouTube só é carregado nesse clique, o que evita travar o
+       carregamento da página e é o que garante nota alta no Google
+       PageSpeed mesmo com vídeo incorporado.
+
+       TROQUE "SEU_ID_DO_VIDEO" pelo ID do seu vídeo no YouTube
+       (o trecho depois de "v=" no link, ex.: watch?v=ABC123XYZ
+       → o ID é ABC123XYZ). O ID precisa ser trocado nos DOIS
+       lugares marcados abaixo.
+       ========================================================= -->
+  <div class="vsl-outer">
+    <div class="vsl-wrap" id="vslWrap" data-video-id="SEU_ID_DO_VIDEO">
+      <img
+        class="vsl-thumb"
+        src="https://i.ytimg.com/vi/SEU_ID_DO_VIDEO/hqdefault.jpg"
+        alt="Assista ao vídeo e conheça a MSA Turbo"
         loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
+        decoding="async"
+        width="1280"
+        height="720">
+      <button class="vsl-play" type="button" aria-label="Reproduzir vídeo">
+        <svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true"><path fill="#C5063D" d="M66.5 7.5c-.8-2.9-2.8-5.1-5.6-5.9C56 0 34 0 34 0S12 0 7.1 1.6C4.3 2.4 2.3 4.6 1.5 7.5 0 12.6 0 24 0 24s0 11.4 1.5 16.5c.8 2.9 2.8 5.1 5.6 5.9C12 48 34 48 34 48s22 0 26.9-1.6c2.8-.8 4.8-3 5.6-5.9C68 35.4 68 24 68 24s0-11.4-1.5-16.5z"/><path fill="#fff" d="M45 24 27 14v20z"/></svg>
+      </button>
     </div>
+  </div>
 
+  <div class="container">
     <div class="cta-row">
       <a href="#oferta" class="btn">QUERO FAZER PARTE DA COMUNIDADE MSA</a>
     </div>
-    <img class="badge-img" src="https://musaselectacademy.net/wp-content/uploads/2026/05/compra-segura-kiwify.png" alt="Compra segura">
+    <img class="badge-img" src="https://musaselectacademy.net/wp-content/uploads/2026/05/compra-segura-kiwify.png" alt="Compra segura" loading="lazy" decoding="async">
   </div>
 </section>
 
@@ -333,6 +353,6 @@
   </div>
 </div>
 
-<script src="assets/script.js"></script>
+<script src="assets/script.js" defer></script>
 </body>
 </html>
