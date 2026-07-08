@@ -48,6 +48,29 @@
     <span class="eyebrow">MSA Turbo</span>
     <h1>MSA Turbo: a nova era da Mentoria MSA</h1>
     <p>A MSA Turbo dá continuidade à Mentoria MSA (antiga Musa Select Academy) e ensina você a vender todos os dias com uma estrutura de produtos virais, combinando tráfego orgânico e pago de forma automatizada — mesmo começando do zero e sem precisar aparecer.</p>
+
+    <!-- =========================================================
+         VSL — VÍDEO DE VENDAS
+         Posicionado logo após o título e a promessa (subheadline)
+         e ANTES do botão de compra. É o ponto de maior conversão
+         para VSL: a visitante lê o gancho, assiste ao argumento de
+         venda completo e encontra o CTA logo abaixo, no momento de
+         maior interesse — sem precisar rolar a página em busca dele.
+
+         TROQUE "SEU_ID_DO_VIDEO" pelo ID do seu vídeo no YouTube.
+         O ID é o trecho depois de "v=" no link do vídeo.
+         Ex.: em https://www.youtube.com/watch?v=ABC123XYZ o ID é ABC123XYZ
+         ========================================================= -->
+    <div class="vsl-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO"
+        title="Assista e conheça a MSA Turbo"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
     <div class="cta-row">
       <a href="#oferta" class="btn">QUERO FAZER PARTE DA COMUNIDADE MSA</a>
     </div>
@@ -291,9 +314,18 @@
       <label for="exitNome">Nome</label>
       <input type="text" id="exitNome" name="nome" placeholder="Seu nome completo" required>
       <label for="exitEmail">E-mail</label>
-      <input type="email" id="exitEmail" name="email" placeholder="seu@email.com" required>
+      <input type="email" id="exitEmail" name="email" placeholder="seu@email.com"
+             inputmode="email" autocomplete="email"
+             pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+             title="Digite um e-mail válido, ex: nome@email.com" required>
+      <span class="field-error" id="errEmail">Digite um e-mail válido.</span>
+
       <label for="exitWhats">WhatsApp</label>
-      <input type="tel" id="exitWhats" name="whatsapp" placeholder="(00) 00000-0000" required>
+      <input type="tel" id="exitWhats" name="whatsapp" placeholder="(00) 00000-0000"
+             inputmode="numeric" autocomplete="tel"
+             minlength="14" maxlength="15"
+             title="Digite um número válido com DDD, ex: (11) 91234-5678" required>
+      <span class="field-error" id="errWhats">Digite um número de WhatsApp válido com DDD.</span>
       <label class="consent"><input type="checkbox" required> Aceito receber a oferta e novidades por e-mail e WhatsApp.</label>
       <button type="submit" class="btn">QUERO RECEBER A OFERTA</button>
     </form>
