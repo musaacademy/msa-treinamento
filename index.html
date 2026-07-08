@@ -78,12 +78,13 @@
     <div class="vsl-wrap" id="vslWrap" data-video-id="SEU_ID_DO_VIDEO">
       <img
         class="vsl-thumb"
-        src="https://i.ytimg.com/vi/SEU_ID_DO_VIDEO/hqdefault.jpg"
+        src="https://i.ytimg.com/vi/SEU_ID_DO_VIDEO/maxresdefault.jpg"
         alt="Assista ao vídeo e conheça a MSA Turbo"
         loading="lazy"
         decoding="async"
         width="1280"
-        height="720">
+        height="720"
+        onerror="this.onerror=null; this.src=this.src.includes('mqdefault') ? this.src.replace('mqdefault','hqdefault') : this.src.replace('maxresdefault','mqdefault');">
       <button class="vsl-play" type="button" aria-label="Reproduzir vídeo">
         <svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true"><path fill="#C5063D" d="M66.5 7.5c-.8-2.9-2.8-5.1-5.6-5.9C56 0 34 0 34 0S12 0 7.1 1.6C4.3 2.4 2.3 4.6 1.5 7.5 0 12.6 0 24 0 24s0 11.4 1.5 16.5c.8 2.9 2.8 5.1 5.6 5.9C12 48 34 48 34 48s22 0 26.9-1.6c2.8-.8 4.8-3 5.6-5.9C68 35.4 68 24 68 24s0-11.4-1.5-16.5z"/><path fill="#fff" d="M45 24 27 14v20z"/></svg>
       </button>
